@@ -1,0 +1,19 @@
+#UserCard {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+
+	transition: all 0.2s ease-in-out;
+	&:hover {
+		transform: scale(1.03);
+	}
+}
+
+.userName {
+	padding: 10px;
+	font-weight: 600;
+	max-width: 100%;
+	overflow: hidden;
+}
