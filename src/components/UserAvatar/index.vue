@@ -46,5 +46,5 @@ export default {
 </template>
 
 <style lang="scss">
-@import './UserAvatar.scss';
+@import './index.scss';
 </style>

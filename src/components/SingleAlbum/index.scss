@@ -1,0 +1,16 @@
+.singleAlbum {
+	background-color: rgb(227, 227, 242);
+	width: max-content;
+	padding: 20px;
+	border-radius: 20px;
+
+	@media (max-width: 700px) {
+		width: 260px;
+	}
+
+	&__title {
+		font-size: 20px;
+		padding-bottom: 10px;
+		overflow: hidden;
+	}
+}

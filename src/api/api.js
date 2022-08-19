@@ -14,7 +14,7 @@ const appApi = {
 		return instance.get(`/albums?userId=${id}`);
 	},
 	getPhotosByAlbumId: (id) => {
-		return instance.get(`/albums?albumId=${id}`);
+		return instance.get(`/photos?albumId=${id}`);
 	},
     
 };

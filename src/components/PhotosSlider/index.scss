@@ -1,0 +1,43 @@
+.photoSlider {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 10px;
+
+	&__arrows {
+		font-size: 48px;
+		color: black;
+		opacity: 0.6;
+		margin-bottom: 70px;
+		cursor: pointer;
+        width: 40px;
+	}
+
+	&__sideImage {
+		height: 130px;
+		width: 130px;
+		opacity: 0.6;
+		margin-bottom: 60px;
+		cursor: pointer;
+
+		@media (max-width: 700px) {
+			display: none;
+		}
+	}
+
+	span {
+		display: flex;
+		flex-direction: column;
+		.photoSlider___secondImage {
+			height: 180px;
+			width: 180px;
+		}
+		p {
+			font-size: 16px;
+			width: 180px;
+			height: 60px;
+			overflow: hidden;
+		}
+	}
+}

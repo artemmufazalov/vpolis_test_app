@@ -19,21 +19,38 @@ const profile = {
 		},
 		setUserAlbums(state, albums) {
 			state.albums = albums;
-		},
-		setSingleAlbumPhotos(state, { id, albumsPhotos }) {
-			state.albumsPhotos[id].albums = albumsPhotos;
+
+			albums.forEach((alb) => {
+				if (!Object.keys(state.albumsPhotos).includes(alb.id)) {
+					state.albumsPhotos[alb.id] = {
+						fetchStatus: 'pending',
+						albums: [],
+					};
+				}
+			});
 		},
 		setUserDataFetchStatus(state, newStatus) {
 			state.userDataFetchStatus = newStatus;
 		},
 		setUserPostsFetchStatus(state, newStatus) {
-			state.userDataFetchStatus = newStatus;
+			state.userPostsFetchStatus = newStatus;
 		},
 		setUserAlbumsFetchStatus(state, newStatus) {
-			state.userDataFetchStatus = newStatus;
+			state.userAlbumsFetchStatus = newStatus;
 		},
-		setAlbumPhotosFetchStatus(state, { id, newStatus }) {
-			state.albumsPhotos[id].fetchStatus = newStatus;
+		setSingleAlbumPhotos(state, { id, albumsPhotos }) {
+			const newAlbumPhotosState = {
+				...state.albumsPhotos,
+				[id]: { ...state.albumsPhotos[id], photos: [...albumsPhotos] },
+			};
+			state.albumsPhotos = newAlbumPhotosState;
+		},
+		setSingleAlbumPhotosFetchStatus(state, { id, newStatus }) {
+			const newAlbumPhotosState = {
+				...state.albumsPhotos,
+				[id]: { ...state.albumsPhotos[id], fetchStatus: newStatus },
+			};
+			state.albumsPhotos = newAlbumPhotosState;
 		},
 	},
 	actions: {
@@ -42,7 +59,7 @@ const profile = {
 			try {
 				const responseData = await appApi.getUserDataById(id);
 				commit('setUserDataFetchStatus', 'success');
-				commit('setUserData', responseData.data);
+				commit('setUserData', responseData.data[0]);
 			} catch (err) {
 				commit('setUserDataFetchStatus', 'error');
 			}
@@ -68,10 +85,13 @@ const profile = {
 			}
 		},
 		async fetchAlbumPhotos({ commit }, id) {
-			commit('setAlbumPhotosFetchStatus', { id, newStatus: 'pending' });
+			commit('setSingleAlbumPhotosFetchStatus', {
+				id,
+				newStatus: 'pending',
+			});
 			try {
 				const responseData = await appApi.getPhotosByAlbumId(id);
-				commit('setAlbumPhotosFetchStatus', {
+				commit('setSingleAlbumPhotosFetchStatus', {
 					id,
 					newStatus: 'success',
 				});
@@ -80,7 +100,10 @@ const profile = {
 					albumsPhotos: responseData.data,
 				});
 			} catch (err) {
-				commit('setAlbumPhotosFetchStatus', { id, newStatus: 'error' });
+				commit('setSingleAlbumPhotosFetchStatus', {
+					id,
+					newStatus: 'error',
+				});
 			}
 		},
 	},
@@ -104,10 +127,16 @@ const profile = {
 			return state.userAlbumsFetchStatus;
 		},
 		getAlbumsPhotosById: (state) => (id) => {
-			return state.albumsPhotos[id].albumsPhotos;
+			if (!Object.keys(state.albumsPhotos).includes(String(id))) {
+				return [];
+			}
+			return state.albumsPhotos[id].photos;
 		},
 		getAlbumsPhotosFetchStatusById: (state) => (id) => {
-			return state.albumsPhotos[id].status;
+			if (!Object.keys(state.albumsPhotos).includes(String(id))) {
+				return 'pending';
+			}
+			return state.albumsPhotos[id].fetchStatus;
 		},
 	},
 };

@@ -1,0 +1,50 @@
+.preloader {
+	font-size: 32px;
+}
+.error {
+	font-size: 32px;
+	color: red;
+}
+
+.profile {
+	margin: 10px;
+	padding: 10px;
+
+	&__top {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 20px;
+		padding-top: 10px;
+		border-top: 1px gray solid;
+		border-bottom: 1px gray solid;
+
+		&__description {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			div {
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				span {
+					display: flex;
+					font-size: 18px;
+					line-height: 26px;
+				}
+
+				span:first-of-type {
+					font-weight: 700;
+					margin-right: 10px;
+				}
+			}
+		}
+	}
+
+	&__bottom {
+		.profile__nav {
+			border-bottom: 1px gray solid;
+		}
+	}
+}

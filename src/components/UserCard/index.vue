@@ -30,5 +30,5 @@ export default {
 </template>
 
 <style lang="scss">
-@import './UserCard.scss';
+@import './index.scss';
 </style>

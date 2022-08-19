@@ -1,0 +1,27 @@
+.profile__nav {
+	font-size: 18px;
+	line-height: 24px;
+	display: flex;
+	flex-direction: row;
+	gap: 15px;
+	padding-left: 5%;
+	margin-top: 20px;
+
+
+	a {
+		color: #2c3e50;
+		text-decoration: none;
+		cursor: pointer;
+		transition: all 0.2s ease-in-out;
+		width: 100px;
+
+		&.selected {
+			color: green;
+			font-weight: bold;
+		}
+		&:hover,
+		:active {
+			font-weight: bold;
+		}
+	}
+}

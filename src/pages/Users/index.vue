@@ -41,5 +41,5 @@ export default {
 </template>
 
 <style lang=scss>
-@import './Users.scss';
+@import './index.scss';
 </style>
