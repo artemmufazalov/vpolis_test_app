@@ -17,14 +17,12 @@ export default {
 	<div id="ProfileNav" class="profile__nav">
 		<router-link
 			:to="route + '?open=posts'"
-			:class="selected === 'posts' ? 'selected' : ''"
-		>
+			:class="selected === 'posts' ? 'selected' : ''">
 			<span>Посты</span>
 		</router-link>
 		<router-link
 			:to="route + '?open=albums'"
-			:class="selected === 'albums' ? 'selected' : ''"
-		>
+			:class="selected === 'albums' ? 'selected' : ''">
 			<span>Альбомы</span>
 		</router-link>
 	</div>

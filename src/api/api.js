@@ -16,8 +16,6 @@ const appApi = {
 	getPhotosByAlbumId: (id) => {
 		return instance.get(`/photos?albumId=${id}`);
 	},
-    
 };
-
 
 export default appApi;

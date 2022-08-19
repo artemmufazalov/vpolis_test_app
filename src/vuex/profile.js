@@ -11,8 +11,22 @@ const profile = {
 		userAlbumsFetchStatus: 'pending',
 	}),
 	mutations: {
+		reset(state) {
+			state.userData = {};
+			state.posts = [];
+			state.albums = [];
+			state.albumsPhotos = {};
+			state.userDataFetchStatus = 'pending';
+			state.userPostsFetchStatus = 'pending';
+			state.userAlbumsFetchStatus = 'pending';
+		},
 		setUserData(state, userData) {
 			state.userData = userData;
+			state.posts = [];
+			state.albums = [];
+			state.albumsPhotos = {};
+			state.userPostsFetchStatus = 'pending';
+			state.userAlbumsFetchStatus = 'pending';
 		},
 		setUserPosts(state, posts) {
 			state.posts = posts;
@@ -55,6 +69,7 @@ const profile = {
 	},
 	actions: {
 		async fetchUserData({ commit }, id) {
+			commit('reset');
 			commit('setUserDataFetchStatus', 'pending');
 			try {
 				const responseData = await appApi.getUserDataById(id);

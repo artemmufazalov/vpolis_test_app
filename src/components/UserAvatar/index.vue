@@ -1,5 +1,5 @@
 <script>
-import { stringToColour } from '@/helpers/getColorFromString';
+import { stringToColour } from '@/helpers';
 
 export default {
 	name: 'UserAvatar',

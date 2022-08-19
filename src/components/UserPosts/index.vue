@@ -39,8 +39,7 @@ export default {
 				v-for="post in userPosts"
 				v-bind:key="post.id"
 				:post="post"
-				:userName="userName"
-			/>
+				:userName="userName" />
 		</div>
 	</div>
 </template>

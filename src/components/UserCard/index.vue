@@ -1,5 +1,5 @@
 <script>
-import UserAvatar from '../UserAvatar';
+import UserAvatar from '@/components/UserAvatar';
 
 export default {
 	name: 'UserCard',
@@ -12,9 +12,9 @@ export default {
 		},
 	},
 	computed: {
-		route(){
-			return `/users/${this.userData.id}`
-		}
+		route() {
+			return `/users/${this.userData.id}`;
+		},
 	},
 	components: { UserAvatar },
 };

@@ -1,5 +1,5 @@
 <script>
-import PhotoSlider from '@/components/PhotosSlider';
+import PhotoSlider from '@/components/PhotoSlider';
 
 export default {
 	name: 'SingleAlbum',
@@ -31,8 +31,7 @@ export default {
 		<div class="singleAlbum__photosWrapper">
 			<div
 				class="singleAlbum__photosPreloader"
-				v-if="albumFetchStatus === 'pending'"
-			>
+				v-if="albumFetchStatus === 'pending'">
 				Загрузка...
 			</div>
 			<div v-if="albumFetchStatus === 'success'">

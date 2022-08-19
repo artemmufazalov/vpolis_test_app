@@ -1,3 +1,5 @@
+@import '@/styles/_variables.scss';
+
 .profile__nav {
 	font-size: 18px;
 	line-height: 24px;
@@ -7,16 +9,15 @@
 	padding-left: 5%;
 	margin-top: 20px;
 
-
 	a {
-		color: #2c3e50;
+		color: $appFontColor;
 		text-decoration: none;
 		cursor: pointer;
 		transition: all 0.2s ease-in-out;
 		width: 100px;
 
 		&.selected {
-			color: green;
+			color: $profileNavSelectedColor;
 			font-weight: bold;
 		}
 		&:hover,

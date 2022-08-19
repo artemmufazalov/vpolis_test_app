@@ -1,5 +1,12 @@
+@import '@/styles/_variables.scss';
+
 .singleAlbum {
-	background-color: rgb(227, 227, 242);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	background-color: $blockBC;
 	width: max-content;
 	padding: 20px;
 	border-radius: 20px;
@@ -11,6 +18,11 @@
 	&__title {
 		font-size: 20px;
 		padding-bottom: 10px;
+		height: 46px;
 		overflow: hidden;
+
+		@media (max-width: 840px) {
+			width: 260px;
+		}
 	}
 }

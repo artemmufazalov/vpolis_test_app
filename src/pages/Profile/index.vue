@@ -31,6 +31,11 @@ export default {
 	async mounted() {
 		await this.$store.dispatch('fetchUserData', this.userId);
 	},
+	watch: {
+		async route() {
+			this.$store.dispatch('fetchUserData', this.userId);
+		},
+	},
 };
 </script>
 
@@ -44,14 +49,16 @@ export default {
 			существует!
 		</div>
 		<div class="profile" v-if="userDataFetchStatus === 'success'">
+			<div class="profile__linkToUsers">
+				<router-link to="/">Ко всем пользователям</router-link>
+			</div>
 			<div class="profile__top">
 				<span class="profile__top__avatar">
 					<UserAvatar
 						:name="userData.username"
 						:width="150"
 						:height="150"
-						:fontSize="64"
-					/>
+						:fontSize="64" />
 				</span>
 				<span class="profile__top__description">
 					<div>
@@ -80,7 +87,9 @@ export default {
 				<ProfileNav :route="route" :selected="openedSection" />
 				<div class="profile__bottom__contentWrapper">
 					<div v-if="openedSection === 'posts'">
-						<UserPosts :userId="userId" :userName="userData.username"/>
+						<UserPosts
+							:userId="userId"
+							:userName="userData.username" />
 					</div>
 					<div v-if="openedSection === 'albums'">
 						<UserAlbums :userId="userId" />

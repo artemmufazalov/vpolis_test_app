@@ -39,8 +39,7 @@ export default {
 				v-for="album in userAlbums"
 				v-bind:key="album.id"
 				:album="album"
-				:userName="userName"
-			/>
+				:userName="userName" />
 		</div>
 	</div>
 </template>

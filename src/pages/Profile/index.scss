@@ -1,14 +1,31 @@
+@import '@/styles/_variables.scss';
+
 .preloader {
 	font-size: 32px;
 }
 .error {
 	font-size: 32px;
-	color: red;
+	color: $errorMessageColor;
 }
 
 .profile {
 	margin: 10px;
 	padding: 10px;
+
+	&__linkToUsers {
+		a {
+			text-decoration: none;
+			color: $appFontColor;
+
+			&:hover,
+			:active {
+				color: green;
+			}
+		}
+		text-align: left;
+		font-size: 18px;
+		padding: 10px;
+	}
 
 	&__top {
 		display: flex;
@@ -17,8 +34,8 @@
 		align-items: center;
 		gap: 20px;
 		padding-top: 10px;
-		border-top: 1px gray solid;
-		border-bottom: 1px gray solid;
+		border-top: $defaultBorder;
+		border-bottom: $defaultBorder;
 
 		&__description {
 			display: flex;
@@ -44,7 +61,7 @@
 
 	&__bottom {
 		.profile__nav {
-			border-bottom: 1px gray solid;
+			border-bottom: $defaultBorder;
 		}
 	}
 }

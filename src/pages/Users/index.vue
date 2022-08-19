@@ -30,8 +30,7 @@ export default {
 				<UserCard
 					v-for="user in users"
 					:key="user.id"
-					:userData="user"
-				/>
+					:userData="user" />
 			</div>
 		</div>
 		<div v-if="usersFetchStatus === 'error'">
@@ -40,6 +39,6 @@ export default {
 	</div>
 </template>
 
-<style lang=scss>
+<style lang="scss">
 @import './index.scss';
 </style>
