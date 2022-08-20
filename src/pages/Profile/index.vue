@@ -15,11 +15,11 @@ export default {
 			return `/users/${this.userId}`;
 		},
 		openedSection() {
-			const queryOpen = this.$route.query.open;
-			if (!queryOpen || queryOpen === '') {
+			const querySelectedPage = this.$route.query.page;
+			if (!querySelectedPage || querySelectedPage === '') {
 				return 'posts';
 			}
-			return queryOpen;
+			return querySelectedPage;
 		},
 		userDataFetchStatus() {
 			return this.$store.getters.getUserDataFetchStatus;
